@@ -44,12 +44,14 @@ fig_F = px.bar(df_F, x="progress_names", y="percent", facet_col="goal_names",
                                                    "complete success".title()]},
                labels={"progress_names": "Best Achievement in Campaign"},
                text="percent_str",
-               facet_col_wrap=2, height=600, width=1600,
+               facet_col_wrap=2, height=600, width=1650,
+
                )
 
 
 #limit y axis to 0-40
 fig_F.update_layout(
+    yaxis_title_font=dict(size=20),
     coloraxis={"colorscale": px.colors.sequential.Darkmint},
     yaxis=dict(range=[0, 40]),
     legend=dict(
@@ -263,7 +265,7 @@ for goal, df_goal in df_E.groupby('goal_names'):
     # Display the plot
 
     # Set the layout options
-    fig_E.update_layout(title_text=f'{str(goal).title()}', font_size=14, height=600, width=850, title_y=1,
+    fig_E.update_layout(title_text=f'{str(goal).title()}', font_size=14, height=570, width=850, title_y=1,
                         autosize=True, margin=dict(l=50, r=50, b=100, t=100, pad=4))
     E_figs.append(fig_E)
 

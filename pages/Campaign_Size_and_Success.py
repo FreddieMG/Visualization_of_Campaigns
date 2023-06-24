@@ -153,7 +153,8 @@ fig_A.update_layout(
            'tickvals': list(range(len(ids))),  # Set tick values to the index of each campaign
            'ticktext': campaign_names, 'showgrid': True  # Set tick labels to the names of the campaigns
            },
-    legend_title_font_size=14,
+    xaxis_title_font=dict(size=16),
+    yaxis_title_font=dict(size=16),
 
     title=dict(text='', x=0.5, xanchor='center', y=0.9),
     autosize=True,
