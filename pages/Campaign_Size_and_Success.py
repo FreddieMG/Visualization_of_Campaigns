@@ -198,7 +198,7 @@ width_trace = go.Scatter(
 
 fig_A.add_trace(width_trace)
 
-fig_A.update_layout(title=dict(font=dict(size=20)), legend=dict(font=dict(size = 18)))
+fig_A.update_layout(legend=dict(font=dict(size = 18), title=dict(font=dict(size=80))))
 
 
 st.plotly_chart(fig_A)
