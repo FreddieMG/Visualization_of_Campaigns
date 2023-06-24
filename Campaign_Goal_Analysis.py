@@ -280,7 +280,7 @@ for goal, df_goal in df_E.groupby('goal_names'):
         fig_E.update_layout(title_text=f'{str(goal).title()}', font_size=14, height=570, width=850, title_y=1, title_x=0.45,
                             autosize=True, margin=dict(l=50, r=50, b=100, t=100, pad=4))
     else:
-        fig_E.update_layout(title_text=f'{str(goal).title()}', font_size=14, height=570, width=850, title_y=1, title_x=0.3,
+        fig_E.update_layout(title_text=f'{str(goal).title()}', font_size=14, height=570, width=850, title_y=1, title_x=0.4,
                         autosize=True, margin=dict(l=50, r=50, b=100, t=100, pad=4))
     E_figs.append(fig_E)
 
