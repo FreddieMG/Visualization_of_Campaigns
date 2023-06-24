@@ -7,7 +7,7 @@ from streamlit_extras.switch_page_button import switch_page
 
 st.set_page_config(layout="wide",initial_sidebar_state="collapsed")
 
-if st.button("Campaign_Size_and_Success"):
+if st.button("Campaign Size and Success"):
     switch_page("Campaign_Size_and_Success")
 
 from Filters.Filters import filter_E, filter_F
