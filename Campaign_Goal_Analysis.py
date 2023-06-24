@@ -51,7 +51,6 @@ fig_F = px.bar(df_F, x="progress_names", y="percent", facet_col="goal_names",
 
 #limit y axis to 0-40
 fig_F.update_layout(
-    yaxis_title_font=dict(size=20),
     coloraxis={"colorscale": px.colors.sequential.Darkmint},
     yaxis=dict(range=[0, 40]),
     legend=dict(
@@ -60,8 +59,10 @@ fig_F.update_layout(
     yanchor="bottom",
     y=-0.15,
     # cange legend title font size
-    font=dict(size = 18)# change this value to move the legend lower
-) )
+    font=dict(size = 18,
+    # change this value to move the legend lower
+))   )
+
 
 
 #remove progress names from x axis but keep the pacet titles
@@ -79,6 +80,7 @@ for a in fig_F.layout.annotations:
 fig_F.update_layout(
 
     yaxis_title='Percent of Total',
+    yaxis_title_font=dict(size=20),
     xaxis={'fixedrange': True},  # Disable dragging on x-axis
     yaxis={'fixedrange': True, 'range': [0, 45]},    # Use log scale and disable dragging on y-axis,
 )
