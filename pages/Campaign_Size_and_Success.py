@@ -11,7 +11,7 @@ from streamlit_extras.switch_page_button import switch_page
 # print("Page names: ", st.source_util.get_pages("Campaign_Goal_Analysis.py"))
 st.set_page_config(layout="wide",initial_sidebar_state="collapsed")
 
-if st.button("Campaign Goal Analysis"):
+if st.button("Go To Campaign Goal Analysis"):
     switch_page("Campaign_Goal_Analysis")
 
 #os.chdir(r"C:\Users\Lior\Desktop\Information-Visualization")
@@ -19,12 +19,19 @@ if st.button("Campaign Goal Analysis"):
 df = pd.read_csv('data/processed_data.csv')
 df.sort_values(by=['id', 'year'], inplace=True)
 #
-st.title('Campaign By Sizes and their Achievements Over Time')
+st.title('Campaign Size and Success')
 st.write('''
-Here we show the size of different campaigns over time.
-The width represents the Relative size of the campaign compared to the population of the country in a specific year (in percents).
-The the colors represent the Achievements for that Year
-You can hover over the lines to see more detailed information for each data point.
+This page is dedicated to exploring relationship between the percent of the population participating in campaigns, and
+the success and progress made by them.
+''')
+
+st.subheader('Campaign Life Cycles, Their Sizes, and Their Achievements Over Time')
+st.write('''
+This plot presents both the size and the progress of different campaigns over time.
+The width represents the percent of the population participating, and the color represents the progress made in that
+ year.
+Hovering over the lines will reveal detailed information for each data point.
+You can also filter the data by selecting the campaign goal you are interested in.
 ''')
 from Filters.Filters import filter_A
 
@@ -217,9 +224,9 @@ fig_A.update_layout(legend=dict(font=dict(size = 18), title_font=dict(size=2)))
 st.plotly_chart(fig_A)
 
 # st.title('Campaign Size Distribution')
-st.title('Campaign Size Effect on Success Rate')
+st.subheader('Campaign Size Correlation to Success Rate')
 st.write('''
-This histogram shows Chances of success by Campaign Size (Relative to Country Population).
+This histogram presents the chance of campaigns from different participation percent ranges fully succeeding.
 ''')
 from Filters.filter_B import filter_B
 
