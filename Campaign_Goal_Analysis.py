@@ -149,7 +149,7 @@ for i, df_CD in enumerate(CD_dfs):
         width=750,
         height=500,
         title_text=titles[i],
-        title_x=0.5,
+        title_x=0.4,
     )
     if len(CD_dfs) == 2 and i == 0:
         fig_CD.update_layout(
