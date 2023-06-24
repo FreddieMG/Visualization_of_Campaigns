@@ -253,8 +253,8 @@ trace = go.Bar(
 #Create the layout
 layout = go.Layout(
     title='Small Campaigns (Up to 1.5%)',
-    xaxis=dict(title='Percent of Population Present In Campaign'),
-    yaxis=dict(title='Success Percentage'),
+    xaxis=dict(title=dict(text='Percent of Population Present In Campaign', font=dict(size=18))),
+    yaxis=dict(title=dict(text='Success Percentage', font=dict(size=18))),
     width = 800
 )
 
@@ -303,8 +303,8 @@ trace = go.Bar(
 #Create the layout
 layout = go.Layout(
     title='Large Campaigns (Larger than 1.5%)',
-    xaxis=dict(title='Percent of Population Present In Campaign'),
-    yaxis=dict(title='Success Percentage'),
+    xaxis=dict(title=dict(text='Percent of Population Present In Campaign', font=dict(size=18))),
+    yaxis=dict(title=dict(text='Success Percentage', font=dict(size=18))),
     width = 800,
 )
 
