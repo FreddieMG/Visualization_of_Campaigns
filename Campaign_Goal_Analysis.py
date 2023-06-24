@@ -296,7 +296,6 @@ else:
 
 st.title('International Intervention Analysis')
 st.write('''
-# Explanation of the Plot
 This Sankey plot shows the relationship between international intervention and success in different types of campaigns. The plot is faceted by campaign goal, with each facet representing a different campaign goal. The first split is by international intervention, and each "tube" is further split by progress. The width of each tube represents the number of examples.
 ''')
 col1, col2 = st.columns(2)

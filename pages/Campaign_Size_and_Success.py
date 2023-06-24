@@ -269,7 +269,7 @@ layout = go.Layout(
     xaxis=dict(title=dict(text='Percent of Population Present In Campaign', font=dict(size=18))),
     yaxis=dict(title=dict(text='Success Percentage', font=dict(size=18))),
     width = 800,
-    title_x=0.3,
+    title_x=0.33,
 
 )
 
@@ -321,7 +321,7 @@ layout = go.Layout(
     xaxis=dict(title=dict(text='Percent of Population Present In Campaign', font=dict(size=18))),
     yaxis=dict(title=dict(text='Success Percentage', font=dict(size=18))),
     width = 800,
-    title_x= 0.3,
+    title_x= 0.33,
 
 
 )
