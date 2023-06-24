@@ -10,7 +10,7 @@ st.set_page_config(layout="wide",initial_sidebar_state="collapsed")
 if st.button("Campaign_Size_and_Success"):
     switch_page("Campaign_Size_and_Success")
 
-from Filters.Filters import filter_CD, filter_E, filter_F
+from Filters.Filters import filter_E, filter_F
 
 df = pd.read_csv('data/processed_data.csv')
 df.sort_values(by=['id', 'year'], inplace=True)
@@ -94,6 +94,14 @@ Please note that all the campaigns that don't have "complete success" as a progr
 st.plotly_chart(fig_F)
 
 
+
+st.title('Violence and State Reaction Analysis')
+st.write('''
+This histogram shows the the success rate of campaigns based on the percentage of the population involved in the campaign.
+''')
+
+from Filters.Filters import filter_CD
+
 # Filter the DataFrame based on the campaign goal
 CD_res = filter_CD(df)  # Replace 'Your Campaign Goal' with your filter
 if CD_res[2]:
@@ -156,6 +164,7 @@ for i, df_CD in enumerate(CD_dfs):
             a['font'] = dict(size=1, color='black')
         a['text'] = a['text'].title()
     figs_CD.append(fig_CD)
+
 
 
 
@@ -224,7 +233,7 @@ for goal, df_goal in df_E.groupby('goal_names'):
     # Create colors for each source node
     colors = df_goal['intervention_codes'].map({code: color for code, color in enumerate(['#4682B4','#FFA07A'])}).tolist()
     node_positions = {
-        'Material Reprucussions': [0.001, 0.001],
+        'Material Reprucussions': [0.001, 0.01],
         'No Intervention': [0.001, 0.7],
         'Complete Success': [0.999, 0.001],
         'Significant Concessions Achieved': [0.999, 0.2],
@@ -271,10 +280,7 @@ for goal, df_goal in df_E.groupby('goal_names'):
                         autosize=True, margin=dict(l=50, r=50, b=100, t=100, pad=4))
     E_figs.append(fig_E)
 
-st.title('Violence and State Reaction Analysis')
-st.write('''
-This histogram shows the the success rate of campaigns based on the percentage of the population involved in the campaign.
-''')
+
 if len(figs_CD) == 1:
     st.plotly_chart(figs_CD[0])
 else:

@@ -174,15 +174,26 @@ progress_order = [
 ]
 progress_order.reverse()
 
+# fig_A.add_trace(go.Scatter(
+#     x=[df_A['year'].min()],
+#     y=[-1000],
+#     mode='lines',
+#     line=dict(color="#2d2d2d"),
+#     name='Campaign Progress',
+#     legendgroup='Campaign Progress',
+#     hoverinfo='none',
+#     showlegend=True
+# ))
+
+
 color_trace = px.line(
     df_A,
     x="year",
     y=np.full(len(df_A), -1000),
     color="progress_names",
     color_discrete_map=color_dict, # Use the color_dict as the color map
-    category_orders={"progress_names": progress_order} # Use the progress_order as the category order
-    ).update_traces(legendgrouptitle_text="Campaign Progress", legendgroup=str("Legends"))
-
+    category_orders={"progress_names": progress_order}, # Use the progress_order as the category order
+).update_traces(legendgrouptitle_text="Campaign Progress", legendgroup=str("Legends"))
 
 fig_A.add_traces(color_trace.data)
 
@@ -198,7 +209,9 @@ width_trace = go.Scatter(
 
 fig_A.add_trace(width_trace)
 
-fig_A.update_layout(legend=dict(font=dict(size = 18), title=dict(font=dict(size=80))))
+
+fig_A.update_layout(legend=dict(font=dict(size = 18), title_font=dict(size=2)))
+
 
 
 st.plotly_chart(fig_A)
