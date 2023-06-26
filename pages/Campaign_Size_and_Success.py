@@ -279,7 +279,7 @@ df_B2, df_B1, num_bins = filter_B(df, 'Small')
 bin_width = (df_B1['stat'].max() - df_B1['stat'].min()) / num_bins
 
 #Create the bins
-bins = np.arange(0, df_B1['stat'].max() + bin_width, bin_width)
+bins = np.arange(0, df_B1['stat'].max(), bin_width)
 
 #Group the data into the bins and calculate the average success percentage
 df_B1['stat_bins'] = pd.cut(df_B1['stat'], bins)
@@ -332,7 +332,7 @@ fig_B1 = go.Figure(data=[trace], layout=layout)
 bin_width = (df_B2['stat'].max() -  1.5)  / num_bins
 
 #Create the bins
-bins = np.arange(1.5, df_B2['stat'].max() + bin_width, bin_width)
+bins = np.arange(1.5, df_B2['stat'].max(), bin_width)
 
 #Group the data into the bins and calculate the average success percentage
 df_B2['stat_bins'] = pd.cut(df_B2['stat'], bins)
