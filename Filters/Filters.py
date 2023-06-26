@@ -58,6 +58,8 @@ def filter_A(df: pd.DataFrame):
             default=list(df[column].unique()),
         )
         df = df[df[column].isin(user_cat_input)]
+        if len(df) == 0:
+            return df, 0
     # elif column == 'Year':
         column = 'year'
         _min = int(df[column].min())
@@ -77,6 +79,8 @@ def filter_A(df: pd.DataFrame):
 
         ids = set(cy0id).intersection(set(cy1id))
         df = df[df["id"].isin(ids)]
+        if len(df) == 0:
+            return df, 0
 
         return df, df["id"].unique()
 

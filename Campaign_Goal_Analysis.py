@@ -7,8 +7,40 @@ from streamlit_extras.switch_page_button import switch_page
 
 st.set_page_config(layout="wide",initial_sidebar_state="collapsed")
 
-if st.button("Go To Campaign Size and Success"):
+
+
+
+customized_button = st.markdown("""
+<style>
+div.stButton > button:first-child {
+  background-color: #ee4466;
+  color: white;
+    padding-top: 10px !important;
+  padding-bottom: 10px !important;
+}
+div.stButton > button:hover {
+  background-color: darkred;
+  color: white;
+}
+</style>""", unsafe_allow_html=True)
+
+columns = st.columns((2, 1, 2))
+button_pressed = columns[1].button('Go To Campaign Size and Success')
+# Initialize a session state variable for the button state
+
+if 'button_state' not in st.session_state:
+    st.session_state.button_state = False
+
+# Update the session state variable only when the button is clicked
+if button_pressed:
+    st.session_state.button_state = True
+
+# Check the session state variable to switch page
+if st.session_state.button_state:
+    st.session_state.button_state = False
+
     switch_page("Campaign_Size_and_Success")
+
 
 from Filters.Filters import filter_E, filter_F
 
@@ -91,7 +123,7 @@ This page is dedicated to comparing the success and progress made by campaigns f
  campaigns for regime change. The plots use additional criteria to delve into additional factors correlated with the progress made by the campaigns. 
 ''')
 
-st.subheader('Distribution of Progress Achieved by Campaign Goal')
+st.subheader('Distribution of Best Progress Achieved by Campaign Goal')
 st.write('''
 This bar plot, which is faceted by campaign goal, displays the distribution of progress for each campaign goal. 
 The x axis represents the best progress achieved by the campaign,
@@ -105,7 +137,7 @@ st.plotly_chart(fig_F)
 
 
 
-st.subheader('Violence and State Reaction Analysis')
+st.subheader('Campaign Violence and State Reaction Effects on Success Rate')
 st.write('''
 This multi-faceted pie chart shows the percent of successful campaigns for each level of violence shown by the campaign 
  participants, and for each level of repression employed by the government. You can view it faceted by goal,
@@ -320,4 +352,6 @@ with col2:
     st.plotly_chart(E_figs[1])
 
 
-
+buttom_button = st.button('Go To Campaign Size and Success ', use_container_width=True)
+if buttom_button:
+    switch_page("Campaign_Size_and_Success")
