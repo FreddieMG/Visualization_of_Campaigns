@@ -204,7 +204,7 @@ for i, df_CD in enumerate(CD_dfs):
             a['text'] = 'No Repression'
 
         a['font'] = dict(size=15)
-        if i == 0 and a['text'] in ["always violent", "never violent", "sometimes violent"]:
+        if (i == 0) and (a['text'] in ["always violent", "never violent", "sometimes violent"]) and (len(CD_dfs) == 2):
             a['font'] = dict(size=1, color='black')
         a['text'] = a['text'].title()
     figs_CD.append(fig_CD)
