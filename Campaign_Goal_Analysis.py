@@ -160,7 +160,7 @@ figs_CD = []
 if len(CD_dfs) == 1:
     titles = ['']
 else:
-    titles = ['Regime Change', 'Greater Autonomy']
+    titles = ['Greater Autonomy', 'Regime Change']
 for i, df_CD in enumerate(CD_dfs):
 
 

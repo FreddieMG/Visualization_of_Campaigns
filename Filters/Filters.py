@@ -130,7 +130,7 @@ def filter_CD(df: pd.DataFrame):
     # Treat columns with < 10 unique values as categorical
     df_regime = df[df['goal_names'] == 'regime change']
     df_auto = df[df['goal_names'] == 'greater autonomy']
-    return df_regime, df_auto, True
+    return df_auto, df_regime, True
 
 
 def filter_E(df: pd.DataFrame) -> pd.DataFrame:
