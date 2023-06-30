@@ -99,18 +99,33 @@ def filter_CD(df: pd.DataFrame):
     df = df.copy()
     df['count'] = 1
 
+    new_df = {'resistance method': [], 'repression_names': [], 'success': [], "goal_names": [], "count": []}
     success_values = {0: 'Failure', 1: 'Success'}
     df['success'] = df['success'].map(success_values)
     df = df[df["repression_names"] != "unknown"]
 
+    repression_values = {0: 'none', 1: 'mild repression', 2: 'moderate repression', 3: 'extreme repression'}
+
+    for id in df['id'].unique():
+        cur_df = df[df['id'] == id]
+        max_repression = cur_df['repression'].max()
+        new_df['repression_names'].append(repression_values[max_repression])
+        new_df['success'].append(cur_df['success'].iloc[-1])
+        new_df['goal_names'].append(cur_df['goal_names'].iloc[-1])
+        new_df['resistance method'].append(cur_df['resistance method'].iloc[-1])
+        new_df['count'].append(1)
+
+
+
+
     separate = st.checkbox("Combine Goals")
 
     if separate:
-        return df, None, False
+        return pd.DataFrame(new_df), None, False
 
 
     modification_container = st.container()
-
+    df =  pd.DataFrame(new_df)
     left, right = st.columns((1, 20))
     # Treat columns with < 10 unique values as categorical
     df_regime = df[df['goal_names'] == 'regime change']
